@@ -7,8 +7,8 @@ class MyInfoPage {
             genericField: ".oxd-input--active",
             myInfoGrid: ".orangehrm-edit-employee-content",
             dateField: "[placeholder='yyyy-dd-mm']",
-            dateCloseButtom: ".--close",
-            submitButtom: "[type='submit']",
+            dateCloseButton: ".--close",
+            submitButton: "[type='submit']",
             genericCombobox:".oxd-select-text--arrow",
             firstComboboxData: ":nth-child(27) > span",
             secondComboboxData: ".oxd-select-dropdown > :nth-child(2)",
@@ -32,7 +32,7 @@ class MyInfoPage {
         cy.get(this.selectorsList().genericField).eq(5).clear().type(driversLicense)
     }
     saveForm() {
-        cy.get(this.selectorsList().submitButtom).eq(0).click()
+        cy.get(this.selectorsList().submitButton).eq(0).click()
         cy.get('body').should('contain', 'Successfully Updated')
     }
     fillStatus(){
