@@ -18,7 +18,7 @@ describe('Orange HRM Tests', () => {
     loginPage.loginWithUser(userData.userSuccess.username, userData.userSuccess.password)
     dashboardPage.checkDashboardPage()
     menuPage.accessMyInfo()
-    myInfoPage.fillPersonalDetails( chance.first(), chance.name({ middle: true }),chance.last(), )
+    myInfoPage.fillPersonalDetails( chance.first(), chance.name({ middle: true }),chance.last())
     myInfoPage.fillEmployeeDetails('employeeId', 'otherId', 'driversLicense')
     myInfoPage.fillStatus()
     myInfoPage.saveForm()

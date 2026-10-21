@@ -8,7 +8,7 @@ const loginPage = new LoginPage()
 describe('Login Orange HRM Tests', () => {
   it('login - fail', () => {
     loginPage.accessLoginPage()
-    loginPage.loginWithUser(userData.userFail.username, userData.userFail.password) 
+    loginPage.loginWithUser(userData.userFail.username, userData.userFail.password)
     loginPage.checkAccessInvalid()
   })
   it('login - success', () => {
