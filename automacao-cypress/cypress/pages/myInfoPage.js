@@ -9,10 +9,9 @@ class MyInfoPage {
       dateCloseButton: ".--close",
       submitButton: "[type='submit']",
       genericCombobox: ".oxd-select-text--arrow",
-      firstComboboxData: ":nth-child(27) > span",
       selectOption: ".oxd-select-option",
-      secondComboboxData: ".oxd-select-dropdown > :nth-child(2)",
       inputGroup: ".oxd-input-group",
+      toastMessage: ".oxd-toast",
     }
     return selectors
   }
@@ -38,7 +37,7 @@ class MyInfoPage {
   }
   saveForm() {
     cy.get(this.selectorsList().submitButton).eq(0).click()
-    cy.get('body').should('contain', 'Successfully Updated')
+    cy.get(this.selectorsList().toastMessage).should('contain', 'Successfully Updated')
   }
   fillStatus(nationality, maritalStatus) {
     cy.get(this.selectorsList().genericCombobox).eq(0).click()
