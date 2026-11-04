@@ -16,8 +16,8 @@ class MyInfoPage {
     return selectors
   }
   checkMyInfoPage() {
-    cy.wait(1000)
-    cy.location('pathname').should('equal', '/web/index.php/pim/viewMyDetails')
+    cy.wait('@personalDetails')
+    cy.location('pathname').should('include', '/pim/viewPersonalDetails')
     cy.get(this.selectorsList().myInfoGrid).should('be.visible')
   }
   fillPersonalDetails(firstName, middleName, lastName) {
