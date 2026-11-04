@@ -4,7 +4,6 @@ class MyInfoPage {
       firstNameField: "[name='firstName']",
       lastNameField: "[name='lastName']",
       middleNameField: "[name='middleName']",
-      genericField: ".oxd-input--active",
       myInfoGrid: ".orangehrm-edit-employee-content",
       dateField: "[placeholder='yyyy-dd-mm']",
       dateCloseButton: ".--close",
@@ -12,6 +11,7 @@ class MyInfoPage {
       genericCombobox: ".oxd-select-text--arrow",
       firstComboboxData: ":nth-child(27) > span",
       secondComboboxData: ".oxd-select-dropdown > :nth-child(2)",
+      inputGroup: ".oxd-input-group",
     }
     return selectors
   }
@@ -25,10 +25,15 @@ class MyInfoPage {
     cy.get(this.selectorsList().middleNameField).clear().type(middleName)
     cy.get(this.selectorsList().lastNameField).clear().type(lastName)
   }
+  getFieldByLabel(labelText) {
+  return cy.contains('label', labelText)
+    .closest(this.selectorsList().inputGroup)
+    .find('input')
+  }
   fillEmployeeDetails(employeeId, otherId, driversLicense) {
-    cy.get(this.selectorsList().genericField).eq(3).clear().type(employeeId)
-    cy.get(this.selectorsList().genericField).eq(4).clear().type(otherId)
-    cy.get(this.selectorsList().genericField).eq(5).clear().type(driversLicense)
+    this.getFieldByLabel('Employee Id').clear().type(employeeId)
+    this.getFieldByLabel('Other Id').clear().type(otherId)
+    this.getFieldByLabel('License Number').clear().type(driversLicense)
   }
   saveForm() {
     cy.get(this.selectorsList().submitButton).eq(0).click()
