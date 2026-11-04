@@ -23,3 +23,17 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import LoginPage from "../pages/loginPage.js";
+import DashboardPage from "../pages/dashboardPage.js";
+
+const loginPage = new LoginPage();
+const dashboardPage = new DashboardPage();
+
+Cypress.Commands.add("login", (username, password) => {
+  cy.session(username, () => {
+    loginPage.accessLoginPage();
+    loginPage.loginWithUser(username, password);
+    dashboardPage.checkDashboardPage();
+  });
+  cy.visit("/dashboard/index");
+});
