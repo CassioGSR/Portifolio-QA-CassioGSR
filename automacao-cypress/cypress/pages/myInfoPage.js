@@ -10,6 +10,7 @@ class MyInfoPage {
       submitButton: "[type='submit']",
       genericCombobox: ".oxd-select-text--arrow",
       firstComboboxData: ":nth-child(27) > span",
+      selectOption: ".oxd-select-option",
       secondComboboxData: ".oxd-select-dropdown > :nth-child(2)",
       inputGroup: ".oxd-input-group",
     }
@@ -39,11 +40,11 @@ class MyInfoPage {
     cy.get(this.selectorsList().submitButton).eq(0).click()
     cy.get('body').should('contain', 'Successfully Updated')
   }
-  fillStatus() {
+  fillStatus(nationality, maritalStatus) {
     cy.get(this.selectorsList().genericCombobox).eq(0).click()
-    cy.get(this.selectorsList().firstComboboxData).click()
+    cy.contains(this.selectorsList().selectOption, nationality).click()
     cy.get(this.selectorsList().genericCombobox).eq(1).click()
-    cy.get(this.selectorsList().secondComboboxData).click()
+    cy.contains(this.selectorsList().selectOption, maritalStatus).click()
   }
 }
 export default MyInfoPage
