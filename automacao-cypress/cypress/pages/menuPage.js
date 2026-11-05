@@ -4,6 +4,7 @@ class MenuPage {
       myInfoButton: "[href='/web/index.php/pim/viewMyDetails']",
       performanceButton: "[href='/web/index.php/performance/viewPerformanceModule']",
       adminButton: "[href='/web/index.php/admin/viewAdminModule']",
+      userDropdown: ".oxd-userdropdown-tab",
     }
     return selectors
   }
@@ -16,5 +17,9 @@ class MenuPage {
   accessAdmin() {
     cy.get(this.selectorsList().adminButton).click()
   }
+  logout() {
+  cy.get(this.selectorsList().userDropdown).click()
+  cy.contains('a', 'Logout').click()
+}
 }
 export default MenuPage
