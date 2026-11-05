@@ -12,38 +12,55 @@ class MyInfoPage {
       selectOption: ".oxd-select-option",
       inputGroup: ".oxd-input-group",
       toastMessage: ".oxd-toast",
-    }
-    return selectors
+      requiredMessage: ".oxd-input-field-error-message",
+    };
+    return selectors;
   }
   checkMyInfoPage() {
-    cy.wait('@personalDetails')
-    cy.location('pathname').should('include', '/pim/viewPersonalDetails')
-    cy.get(this.selectorsList().myInfoGrid).should('be.visible')
+    cy.wait("@personalDetails");
+    cy.location("pathname").should("include", "/pim/viewPersonalDetails");
+    cy.get(this.selectorsList().myInfoGrid).should("be.visible");
   }
   fillPersonalDetails(firstName, middleName, lastName) {
-    cy.get(this.selectorsList().firstNameField).clear().type(firstName)
-    cy.get(this.selectorsList().middleNameField).clear().type(middleName)
-    cy.get(this.selectorsList().lastNameField).clear().type(lastName)
+    cy.get(this.selectorsList().firstNameField).clear().type(firstName);
+    cy.get(this.selectorsList().middleNameField).clear().type(middleName);
+    cy.get(this.selectorsList().lastNameField).clear().type(lastName);
   }
   getFieldByLabel(labelText) {
-  return cy.contains('label', labelText)
-    .closest(this.selectorsList().inputGroup)
-    .find('input')
+    return cy
+      .contains("label", labelText)
+      .closest(this.selectorsList().inputGroup)
+      .find("input");
   }
   fillEmployeeDetails(employeeId, otherId, driversLicense) {
-    this.getFieldByLabel('Employee Id').clear().type(employeeId)
-    this.getFieldByLabel('Other Id').clear().type(otherId)
-    this.getFieldByLabel('License Number').clear().type(driversLicense)
+    this.getFieldByLabel("Employee Id").clear().type(employeeId);
+    this.getFieldByLabel("Other Id").clear().type(otherId);
+    this.getFieldByLabel("License Number").clear().type(driversLicense);
   }
   saveForm() {
-    cy.get(this.selectorsList().submitButton).eq(0).click()
-    cy.get(this.selectorsList().toastMessage).should('contain', 'Successfully Updated')
+    this.submitForm();
+    cy.get(this.selectorsList().toastMessage).should(
+      "contain",
+      "Successfully Updated",
+    );
   }
   fillStatus(nationality, maritalStatus) {
-    cy.get(this.selectorsList().genericCombobox).eq(0).click()
-    cy.contains(this.selectorsList().selectOption, nationality).click()
-    cy.get(this.selectorsList().genericCombobox).eq(1).click()
-    cy.contains(this.selectorsList().selectOption, maritalStatus).click()
+    cy.get(this.selectorsList().genericCombobox).eq(0).click();
+    cy.contains(this.selectorsList().selectOption, nationality).click();
+    cy.get(this.selectorsList().genericCombobox).eq(1).click();
+    cy.contains(this.selectorsList().selectOption, maritalStatus).click();
+  }
+  clearFirstName() {
+    cy.get(this.selectorsList().firstNameField).clear();
+  }
+  submitForm() {
+    cy.get(this.selectorsList().submitButton).eq(0).click();
+  }
+  checkRequiredError() {
+    cy.get(this.selectorsList().requiredMessage).should("contain", "Required");
+  }
+  checkFirstName(firstName) {
+    cy.get(this.selectorsList().firstNameField).should("have.value", firstName);
   }
 }
-export default MyInfoPage
+export default MyInfoPage;
