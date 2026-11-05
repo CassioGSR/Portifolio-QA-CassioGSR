@@ -30,10 +30,16 @@ const loginPage = new LoginPage();
 const dashboardPage = new DashboardPage();
 
 Cypress.Commands.add("login", (username, password) => {
-  cy.session(username, () => {
-    loginPage.accessLoginPage();
-    loginPage.loginWithUser(username, password);
-    dashboardPage.checkDashboardPage();
-  });
-  cy.visit("/dashboard/index");
+    cy.session(username, () => {
+    loginPage.accessLoginPage()
+    loginPage.loginWithUser(username, password)
+    dashboardPage.checkDashboardPage()
+  }, {
+    cacheAcrossSpecs: true,
+    validate() {
+      cy.request({ url: '/dashboard/index', followRedirect: false })
+        .its('status').should('eq', 200)
+    }
+  })
+  cy.visit('/dashboard/index');
 });
