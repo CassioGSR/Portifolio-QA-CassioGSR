@@ -6,11 +6,11 @@ const dashboardPage = new DashboardPage();
 const menuPage = new MenuPage();
 
 const modules = [
-  { name: "Admin", path: "/admin" },
-  { name: "PIM", path: "/pim" },
-  { name: "Leave", path: "/leave" },
-  { name: "Time", path: "/time" },
-  { name: "Performance", path: "/performance" },
+  { id: 'CT-009', name: "Admin", path: "/admin" },
+  { id: 'CT-010', name: "PIM", path: "/pim" },
+  { id: 'CT-011', name: "Leave", path: "/leave" },
+  { id: 'CT-012', name: "Time", path: "/time" },
+  { id: 'CT-013', name: "Performance", path: "/performance" },
 ];
 
 describe("Navigation Orange HRM Tests", () => {
@@ -19,8 +19,8 @@ describe("Navigation Orange HRM Tests", () => {
     dashboardPage.checkDashboardPage();
   });
 
-  modules.forEach(({ name, path }) => {
-    it(`navigation - ${name}`, () => {
+  modules.forEach(({ id, name, path }) => {
+    it(`${id}: navigation - ${name}`, () => {
       menuPage.accessModule(name);
       menuPage.checkModuleUrl(path);
     });

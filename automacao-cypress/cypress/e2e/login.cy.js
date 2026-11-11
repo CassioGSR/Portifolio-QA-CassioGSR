@@ -8,27 +8,27 @@ const loginPage = new LoginPage()
 const menuPage = new MenuPage()
 
 describe('Login Orange HRM Tests', () => {
-  it('login - fail', () => {
+  it('CT-002: login - fail', () => {
     loginPage.accessLoginPage()
     loginPage.loginWithUser(userData.userFail.username, userData.userFail.password)
     loginPage.checkAccessInvalid()
   })
-  it('login - success', () => {
+  it('CT-001: login - success', () => {
     loginPage.accessLoginPage()
     loginPage.loginWithUser(userData.userSuccess.username, userData.userSuccess.password)
     dashboardPage.checkDashboardPage()
   })
-  it('login - fail with wrong password', () => {
+  it('CT-003: login - fail with wrong password', () => {
   loginPage.accessLoginPage()
   loginPage.loginWithUser(userData.userWrongPassword.username, userData.userWrongPassword.password)
   loginPage.checkAccessInvalid()
 })
-it('login - fail with empty fields', () => {
+it('CT-004: login - fail with empty fields', () => {
   loginPage.accessLoginPage()
   loginPage.submitEmptyForm()
   loginPage.checkRequiredFields()
 })
-it('logout - success', () => {
+it('CT-005: logout - success', () => {
   cy.on('uncaught:exception', (err) => {
     if (err.message.includes("reading 'response'")) {
       return false

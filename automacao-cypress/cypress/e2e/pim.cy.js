@@ -15,13 +15,13 @@ describe('PIM Orange HRM Tests', () => {
     cy.intercept('GET', '**/api/v2/pim/employees/*/personal-details').as('personalDetails')
   })
 
-  it('pim - add employee', () => {
+  it('CT-016: pim - add employee', () => {
     pimPage.addEmployee(chance.first(), chance.last(), chance.hash({ length: 8 }))
     cy.wait('@personalDetails')
     pimPage.checkEmployeeCreated()
   })
 
-  it('pim - search employee by id', () => {
+  it('CT-017: pim - search employee by id', () => {
     const firstName = chance.first()
     const lastName = chance.last()
     const employeeId = chance.hash({ length: 8 })

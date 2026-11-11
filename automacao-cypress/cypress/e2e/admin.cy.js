@@ -19,13 +19,13 @@ describe('Admin Orange HRM Tests', () => {
     cy.wait('@getUsers')
   })
 
-  it('admin - search existing user', () => {
+  it('CT-014: admin - search existing user', () => {
     adminPage.searchUser(userData.userSuccess.username)
     cy.wait('@getUsers')
     adminPage.checkUserFound(userData.userSuccess.username)
   })
 
-  it('admin - search non-existent user', () => {
+  it('CT-015: admin - search non-existent user', () => {
     adminPage.searchUser(chance.hash({ length: 12 }))
     cy.wait('@getUsers')
     adminPage.checkNoRecords()

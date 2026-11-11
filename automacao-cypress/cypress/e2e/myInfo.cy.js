@@ -19,7 +19,7 @@ describe("Orange HRM Tests", () => {
     menuPage.accessMyInfo();
     myInfoPage.checkMyInfoPage();
   });
-  it("User info update - success", () => {
+  it("CT-006: User info update - success", () => {
     myInfoPage.fillPersonalDetails(
       chance.first(),
       chance.first(),
@@ -33,12 +33,12 @@ describe("Orange HRM Tests", () => {
     myInfoPage.fillStatus("Brazilian", "Single");
     myInfoPage.saveForm();
   });
-  it("User info update - first name required", () => {
+  it("CT-007: User info update - first name required", () => {
     myInfoPage.clearFirstName();
     myInfoPage.submitForm();
     myInfoPage.checkRequiredError();
   });
-  it("User info update - data persists after reload", () => {
+  it("CT-008: User info update - data persists after reload", () => {
     const firstName = chance.first();
     myInfoPage.fillPersonalDetails(firstName, chance.first(), chance.last());
     myInfoPage.saveForm();
