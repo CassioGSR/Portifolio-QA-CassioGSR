@@ -27,24 +27,24 @@
 
 ## 2. Rastreabilidade e execução
 
-**Última execução:** AAAA-MM-DD, Cypress 16.2.0
+**Última execução:** 2026-11-11, Cypress 16.2.0
 
 | ID | Arquivo de automação | Título do teste no código | Resultado |
 |---|---|---|---|
-| CT-001 | [login.cy.js](../automacao-cypress/cypress/e2e/login.cy.js) | CT-001: login - success | ⬜ |
-| CT-002 | [login.cy.js](../automacao-cypress/cypress/e2e/login.cy.js) | CT-002: login - fail | ⬜ |
-| CT-003 | [login.cy.js](../automacao-cypress/cypress/e2e/login.cy.js) | CT-003: login - fail with wrong password | ⬜ |
-| CT-004 | [login.cy.js](../automacao-cypress/cypress/e2e/login.cy.js) | CT-004: login - fail with empty fields | ⬜ |
-| CT-005 | [login.cy.js](../automacao-cypress/cypress/e2e/login.cy.js) | CT-005: logout - success | ⬜ |
-| CT-006 | [myInfo.cy.js](../automacao-cypress/cypress/e2e/myInfo.cy.js) | CT-006: User info update - success | ⬜ |
-| CT-007 | [myInfo.cy.js](../automacao-cypress/cypress/e2e/myInfo.cy.js) | CT-007: User info update - first name required | ⬜ |
-| CT-008 | [myInfo.cy.js](../automacao-cypress/cypress/e2e/myInfo.cy.js) | CT-008: User info update - data persists after reload | ⬜ |
-| CT-009 | [navigation.cy.js](../automacao-cypress/cypress/e2e/navigation.cy.js) | CT-009: navigation - Admin | ⬜ |
-| CT-010 | [navigation.cy.js](../automacao-cypress/cypress/e2e/navigation.cy.js) | CT-010: navigation - PIM | ⬜ |
-| CT-011 | [navigation.cy.js](../automacao-cypress/cypress/e2e/navigation.cy.js) | CT-011: navigation - Leave | ⬜ |
-| CT-012 | [navigation.cy.js](../automacao-cypress/cypress/e2e/navigation.cy.js) | CT-012: navigation - Time | ⬜ |
-| CT-013 | [navigation.cy.js](../automacao-cypress/cypress/e2e/navigation.cy.js) | CT-013: navigation - Performance | ⬜ |
-| CT-014 | [admin.cy.js](../automacao-cypress/cypress/e2e/admin.cy.js) | CT-014: admin - search existing user | ⬜ |
-| CT-015 | [admin.cy.js](../automacao-cypress/cypress/e2e/admin.cy.js) | CT-015: admin - search non-existent user | ⬜ |
-| CT-016 | [pim.cy.js](../automacao-cypress/cypress/e2e/pim.cy.js) | CT-016: pim - add employee | ⬜ |
-| CT-017 | [pim.cy.js](../automacao-cypress/cypress/e2e/pim.cy.js) | CT-017: pim - search employee by id | ⬜ |
+| CT-001 | [login.cy.js](../automacao-cypress/cypress/e2e/login.cy.js) | CT-001: login - success | ✅ |
+| CT-002 | [login.cy.js](../automacao-cypress/cypress/e2e/login.cy.js) | CT-002: login - fail | ✅ |
+| CT-003 | [login.cy.js](../automacao-cypress/cypress/e2e/login.cy.js) | CT-003: login - fail with wrong password | ✅ |
+| CT-004 | [login.cy.js](../automacao-cypress/cypress/e2e/login.cy.js) | CT-004: login - fail with empty fields | ✅ |
+| CT-005 | [login.cy.js](../automacao-cypress/cypress/e2e/login.cy.js) | CT-005: logout - success | ✅ |
+| CT-006 | [myInfo.cy.js](../automacao-cypress/cypress/e2e/myInfo.cy.js) | CT-006: User info update - success | ✅ |
+| CT-007 | [myInfo.cy.js](../automacao-cypress/cypress/e2e/myInfo.cy.js) | CT-007: User info update - first name required | ✅ |
+| CT-008 | [myInfo.cy.js](../automacao-cypress/cypress/e2e/myInfo.cy.js) | CT-008: User info update - data persists after reload | ✅ |
+| CT-009 | [navigation.cy.js](../automacao-cypress/cypress/e2e/navigation.cy.js) | CT-009: navigation - Admin | ✅ |
+| CT-010 | [navigation.cy.js](../automacao-cypress/cypress/e2e/navigation.cy.js) | CT-010: navigation - PIM | ✅ |
+| CT-011 | [navigation.cy.js](../automacao-cypress/cypress/e2e/navigation.cy.js) | CT-011: navigation - Leave | ✅ |
+| CT-012 | [navigation.cy.js](../automacao-cypress/cypress/e2e/navigation.cy.js) | CT-012: navigation - Time | ✅ |
+| CT-013 | [navigation.cy.js](../automacao-cypress/cypress/e2e/navigation.cy.js) | CT-013: navigation - Performance | ✅ |
+| CT-014 | [admin.cy.js](../automacao-cypress/cypress/e2e/admin.cy.js) | CT-014: admin - search existing user | ✅ |
+| CT-015 | [admin.cy.js](../automacao-cypress/cypress/e2e/admin.cy.js) | CT-015: admin - search non-existent user | ✅ |
+| CT-016 | [pim.cy.js](../automacao-cypress/cypress/e2e/pim.cy.js) | CT-016: pim - add employee | ✅ |
+| CT-017 | [pim.cy.js](../automacao-cypress/cypress/e2e/pim.cy.js) | CT-017: pim - search employee by id | ✅ |
