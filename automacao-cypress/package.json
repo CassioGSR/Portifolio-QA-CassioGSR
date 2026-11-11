@@ -1,7 +1,8 @@
 {
   "scripts": {
     "cy:open": "cypress open",
-    "test": "cypress run"
+    "test": "cypress run",
+    "test:video": "cypress run --config video=true"
   },
   "dependencies": {
     "cypress": "^16.2.0"
