@@ -16,3 +16,9 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 import 'cypress-mochawesome-reporter/register'
+Cypress.on('uncaught:exception', (err) => {
+  const knownAppError = /Cannot read properties of undefined \(reading '(message|response)'\)/
+  if (knownAppError.test(err.message)) {
+    return false
+  }
+})

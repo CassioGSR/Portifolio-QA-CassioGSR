@@ -29,11 +29,6 @@ it('CT-004: login - fail with empty fields', () => {
   loginPage.checkRequiredFields()
 })
 it('CT-005: logout - success', () => {
-  cy.on('uncaught:exception', (err) => {
-    if (err.message.includes("reading 'response'")) {
-      return false
-    }
-  })
   loginPage.accessLoginPage()
   loginPage.loginWithUser(userData.userSuccess.username, userData.userSuccess.password)
   dashboardPage.checkDashboardPage()

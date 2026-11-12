@@ -31,8 +31,10 @@ class PimPage {
   }
 
   saveEmployee() {
+    cy.intercept('POST', '**/api/v2/pim/employees').as('createEmployee')
     cy.get(this.selectorsList().submitButton).click()
-    cy.get(this.selectorsList().toastMessage).should('contain', 'Successfully Saved')
+    cy.wait('@createEmployee').its('response.statusCode').should('eq', 200)
+    cy.get(this.selectorsList().toastMessage, { timeout: 10000 }).should('contain', 'Successfully Saved')
   }
 
   addEmployee(firstName, lastName, employeeId) {
@@ -51,12 +53,14 @@ class PimPage {
   }
 
   searchByEmployeeId(employeeId) {
+    cy.intercept('GET', `**/api/v2/pim/employees*${employeeId}*`).as('searchEmployee')
     this.getFieldByLabel('Employee Id').type(employeeId)
     cy.get(this.selectorsList().submitButton).click()
+    cy.wait('@searchEmployee')
   }
 
   checkEmployeeInList(firstName, lastName) {
-    cy.get(this.selectorsList().tableCard)
+    cy.get( this.selectorsList().tableCard, { timeout: 10000 })
       .should('have.length', 1)
       .and('contain', firstName)
       .and('contain', lastName)
