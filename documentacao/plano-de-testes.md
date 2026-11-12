@@ -72,7 +72,7 @@ Validar, por meio de testes automatizados ponta a ponta (E2E), os fluxos princip
 |---|---|
 | O demo é público, compartilhado e reiniciado periodicamente, podendo ficar lento ou perder dados | Testes independentes que criam os próprios dados; tempos de espera ajustados onde há lentidão |
 | Os seletores dependem do HTML do site, e uma atualização pode quebrar os testes | Seletores por texto e por label; Page Object concentra a manutenção |
-| Erros JavaScript internos da aplicação podem reprovar testes (observado no logout) | Tratamento pontual da exceção, restrito ao teste afetado |
+| Erros JavaScript internos da aplicação podem reprovar testes (observado no logout) | Tratamento central em support/e2e.js, restrito às mensagens Cannot read properties of undefined (reading 'message' / 'response'); qualquer outro erro da aplicação continua reprovando o teste. |
 | Dados criados no cadastro de funcionários não são removidos | Aceitável no demo; em ambiente real, a limpeza seria feita via API |
 | As credenciais do demo são públicas e outras pessoas podem alterá-las | Credenciais centralizadas em uma fixture, fáceis de atualizar |
 
